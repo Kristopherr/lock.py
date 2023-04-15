@@ -29,7 +29,7 @@ pip install cryptography
 pip install argon2-cffi
 </pre>
 <h2>Usage</h2>
-<p>To use the script, navigate to the directory containing the files you want to encrypt or decrypt and execute the script:</p>
+<p>To use the script, place lock.py in the directory containing the files you want to encrypt or decrypt and execute the script:</p>
 <pre>
 python lock.py
 </pre>
