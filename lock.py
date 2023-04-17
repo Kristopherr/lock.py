@@ -50,6 +50,7 @@ def derive_key(password, salt):
 
 def encrypt_data(password, input_path, output_path):
     try:
+        print(f"Encrypting {input_path}")
         salt = urandom(salt_size)
         nonce = urandom(nonce_size)
         key = derive_key(password, salt)
@@ -70,7 +71,7 @@ def encrypt_data(password, input_path, output_path):
     except KeyboardInterrupt:
         if os.path.exists(output_path):
             os.remove(output_path)
-        print("\nEncryption process interrupted. The incomplete encrypted file has been removed.")
+        print(f"\nEncryption process interrupted. The incomplete encrypted file {input_path} has been removed.")
         sys.exit(1)
     except FileNotFoundError:
         print(f"File not found. Unable to encrypt the file: {input_path}")
@@ -81,6 +82,7 @@ def encrypt_data(password, input_path, output_path):
 
 def decrypt_data(password, input_path, output_path):
     try:
+        print(f"Decrypting {input_path}")
         with open(input_path, 'rb') as infile:
             salt = infile.read(salt_size)
             nonce = infile.read(nonce_size)
@@ -97,7 +99,7 @@ def decrypt_data(password, input_path, output_path):
     except KeyboardInterrupt:
         if os.path.exists(output_path):
             os.remove(output_path)
-        print("\nDecryption process interrupted. The incomplete decrypted file has been removed.")
+        print(f"\nDecryption process interrupted. The incomplete decrypted file {input_path} has been removed.")
         sys.exit(1)
     except FileNotFoundError:
         print(f"File not found. Unable to decrypt the file: {input_path}")
