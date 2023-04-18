@@ -26,6 +26,7 @@
 <p>To run this script, you need Python 3.6 or higher. You'll also need to install the following Python packages using pip:</p>
 <pre>
 pip install cryptography
+pip install argon2
 pip install argon2-cffi
 </pre>
 <h2>Usage</h2>
