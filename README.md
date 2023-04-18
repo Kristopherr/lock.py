@@ -26,7 +26,7 @@
 <p>To run this script, you need Python 3.6 or higher. You'll also need to install the following Python packages using pip:</p>
 <pre>
 sudo apt install pip
-</pip>
+</pre>
 <pre>
 pip install readchar
 pip install cryptography
