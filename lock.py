@@ -2,6 +2,7 @@ import os
 import sys
 import shutil
 import signal
+import readchar
 from getpass import getpass
 from cryptography.hazmat.primitives.kdf.scrypt import Scrypt
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
@@ -111,10 +112,27 @@ def decrypt_data(password, input_path, output_path):
     except Exception as e:
         print(f"An unexpected error occurred during the decryption process: {str(e)}")
 
+def get_password_with_asterisks(prompt):
+    print(prompt, end='', flush=True)
+    password = []
+    while True:
+        key = readchar.readchar()
+        if key == '\r' or key == '\n':
+            break
+        elif key == '\x08' or key == '\x7f':
+            if len(password) > 0:
+                password.pop()
+                print('\x08 \x08', end='', flush=True)
+        else:
+            password.append(key)
+            print('*', end='', flush=True)
+    print()
+    return ''.join(password)
+    
 def get_password():
     while True:
-        password1 = getpass("Enter password: ")
-        password2 = getpass("Confirm password: ")
+        password1 = get_password_with_asterisks("Enter password: ")
+        password2 = get_password_with_asterisks("Confirm password: ")
 
         if password1 == password2:
             return password1
@@ -133,7 +151,7 @@ def lock_folder():
                 secure_delete(input_path)
 
 def unlock_folder():
-    password = getpass("Enter password: ")
+    password = get_password_with_asterisks("Enter password: ")
 
     for root, dirs, files in os.walk('.'):
         for file in files:
