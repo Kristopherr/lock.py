@@ -25,6 +25,10 @@
 <h2>Requirements</h2>
 <p>To run this script, you need Python 3.6 or higher. You'll also need to install the following Python packages using pip:</p>
 <pre>
+sudo apt install pip
+</pip>
+<pre>
+pip install readchar
 pip install cryptography
 pip install argon2-cffi
 </pre>
