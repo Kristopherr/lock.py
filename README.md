@@ -37,7 +37,7 @@ python lock.py
 <p>Remember to keep your password safe, as losing it will make it nearly impossible to recover your encrypted files.</p>
 <h2>Disclaimer</h2>
 <p>While the script uses strong encryption and key derivation techniques, it's important to understand the risks associated with encryption and securely managing passwords. Always keep backups of your important files and use strong, unique passwords to minimize the risk of data loss or unauthorized access.</p>
-<h2>Warning></h2>
+<h2>Warning!</h2>
 <p>It should go without saying -- DO NOT USE THIS SCRIPT IN YOUR ROOT OR HOME DIRECTORYIES! Usining is root will likely brick your system.
 </p>
 </body>
